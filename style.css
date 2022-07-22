@@ -1,14 +1,25 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
 .weather-app {
   max-width: 700px;
   display: block;
   margin: 15px auto;
-  border: 1px solid gray;
+  border: 1px solid #dadde1;
   padding: 30px 35px;
   border-radius: 8px;
 }
 
 .search-btn {
   padding: 6px 18px;
+  background-color: #ec6e4c;
+  border-color: #ec6e4c;
+  font-weight: 500;
+  transition: all 150ms ease-in-out;
+}
+.search-btn:hover {
+  background-color: #cf3c14;
+  border-color: #ec6e4c;
 }
 
 section {
@@ -18,6 +29,10 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 300;
+  color: #48484a;
 }
 main {
   margin-top: 20px;
@@ -31,5 +46,44 @@ small {
 
 h1 {
   font-size: 50px;
+  font-weight: 400;
+  color: #48484a;
+}
+strong {
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
+.units {
+  font-size: 19px;
+  position: relative;
+  top: -34px;
+}
+.celsium-unit,
+.farenheit-unit {
+  text-decoration: none;
+  color: #48484a;
+  cursor: default;
+}
+.celsium-unit:hover {
+  color: #48484a;
+}
+.farenheit-unit {
+  color: #ec6e4c;
   font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+}
+.farenheit-unit:hover {
+  color: #ec6e4c;
+  text-decoration: underline;
+}
+.fa-wind {
+  color: #52a6bb;
+}
+.fa-droplet {
+  color: #446ab1;
+}
+.fa-temperature-half {
+  color: #ec6e4c;
 }

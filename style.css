@@ -64,20 +64,18 @@ strong {
   text-decoration: none;
   color: #48484a;
   cursor: default;
+  transition: all 150ms ease-in-out;
 }
 .celsium-unit:hover {
   color: #48484a;
 }
-.farenheit-unit {
-  color: #ec6e4c;
-  font-weight: 600;
-  font-size: 20px;
-  cursor: pointer;
-}
 .farenheit-unit:hover {
   color: #ec6e4c;
-  text-decoration: underline;
+  font-weight: 600;
+  font-size: 35px;
+  cursor: pointer;
 }
+
 .fa-wind {
   color: #52a6bb;
 }

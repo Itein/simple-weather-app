@@ -30,7 +30,7 @@
         <header>
           <div class="row">
             <div class="col-9">
-              <form>
+              <form class="search-form">
                 <input
                   type="search"
                   placeholder="Type your city"
@@ -52,26 +52,35 @@
           </div>
         </header>
         <section>
-          <h1>Kyiv</h1>
+          <h1></h1>
           <ul>
-            <li>Friday 10:00</li>
-            <li>Clouds</li>
+            <li id="day-of-week">Friday</li>
+            <li>Last updated at 10:00</li>
+            <li id="weather-condition"></li>
           </ul>
         </section>
         <main>
           <div class="row">
             <div class="col">
-              <strong>☀25</strong>
+              <span id="main-icon"></span>
+              <span id="current-temperature"></span>
               <span class="units">
                 <a href="#" class="celsium-unit">°C</a> |
-                <a href="#" class="farenheit-unit">F</a>
+                <a href="#" class="farenheit-unit">°F</a>
               </span>
             </div>
             <div class="col">
-              <div><i class="fa-solid fa-droplet"></i> Humidity: 70%</div>
-              <div><i class="fa-solid fa-wind"></i> Wind: 4 m/s</div>
               <div>
-                <i class="fa-solid fa-temperature-half"></i> Feels like: 26
+                <i class="fa-solid fa-droplet"></i> Humidity:
+                <span id="humidity"></span>%
+              </div>
+              <div>
+                <i class="fa-solid fa-wind"></i> Wind:
+                <span id="wind-speed"></span> m/s
+              </div>
+              <div>
+                <i class="fa-solid fa-temperature-half"></i> Feels like:
+                <span id="feels-like-temperature"></span>
               </div>
             </div>
           </div>
@@ -79,5 +88,6 @@
       </div>
     </div>
     <small> <a href="#">Open-sourced code</a> by Kateryna Borodavko </small>
+    <script src="weather.js"></script>
   </body>
 </html>

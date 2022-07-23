@@ -35,7 +35,6 @@ function showWeather(response) {
   document.querySelector("#current-temperature").innerHTML = temperatureElement;
 
   let tempByFeeling = Math.round(response.data.main.feels_like);
-  console.log(tempByFeeling);
   document.querySelector(
     "#feels-like-temperature"
   ).innerHTML = `${tempByFeeling}°`;
@@ -50,6 +49,7 @@ function showWeather(response) {
   document.querySelector("#update-time").innerHTML = timeElement;
 
   celsiumTemperature = response.data.main.temp;
+  feelingTemprature = response.data.main.feels_like;
 
   let weatherIcon = response.data.weather[0].icon;
   let img = new Image();
@@ -77,20 +77,33 @@ citySearch.addEventListener("submit", handleSubmit);
 
 function displayFahrenheitTemprature(event) {
   event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiumLink.classList.add("active");
   let temperatureElement = document.querySelector("#current-temperature");
   let toFahrenheit = (celsiumTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(toFahrenheit);
 
-  /*let celsiumLink = document.querySelector(".celsium-unit");
-  celsiumLink.classList.add("active");
-
-  let farenheitLink = document.querySelector(".fahrenheit-unit");
-  farenheitLink.classList.remove("hover");*/
+  let tempByFeeling = document.querySelector("#feels-like-temperature");
+  let feelingsToFahrenheit = (feelingTemprature * 9) / 5 + 32;
+  tempByFeeling.innerHTML = Math.round(feelingsToFahrenheit);
 }
-let fahrenheitTemprature = document.querySelector(".fahrenheit-unit");
-fahrenheitTemprature.addEventListener("click", displayFahrenheitTemprature);
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = Math.round(celsiumTemperature);
+
+  let tempByFeeling = document.querySelector("#feels-like-temperature");
+  tempByFeeling.innerHTML = Math.round(feelingTemprature);
+}
+let fahrenheitLink = document.querySelector("#fahrenheit-unit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemprature);
+
+let celsiumLink = document.querySelector("#celsium-unit");
+celsiumLink.addEventListener("click", displayCelsiusTemperature);
 
 let celsiumTemperature = null;
+let feelingTemprature = null;
 
 //Start city
 function zeroCity(city) {

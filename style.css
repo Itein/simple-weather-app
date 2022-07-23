@@ -70,23 +70,28 @@ img {
   position: relative;
   top: -34px;
 }
-.celsium-unit,
-.fahrenheit-unit {
+
+#celsium-unit {
+  color: #48484a;
+  cursor: default;
+  text-decoration: none;
+}
+#fahrenheit-unit {
+  color: #ec6e4c;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#fahrenheit-unit:hover {
+  color: #ec6e4c;
+}
+#celsium-unit:hover {
   text-decoration: none;
   color: #48484a;
   cursor: default;
-  transition: all 150ms ease-in-out;
 }
-.celsium-unit:hover {
-  color: #48484a;
-}
-.fahrenheit-unit:hover {
-  color: #ec6e4c;
-  font-weight: 600;
-  font-size: 35px;
-  cursor: pointer;
-}
-
 .fa-wind {
   color: #52a6bb;
 }
@@ -95,4 +100,17 @@ img {
 }
 .fa-temperature-half {
   color: #ec6e4c;
+}
+
+.active {
+  color: #ec6e4c;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.not-active {
+  color: #48484a;
+  cursor: default;
 }

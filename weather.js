@@ -37,7 +37,7 @@ function showWeather(response) {
   let tempByFeeling = Math.round(response.data.main.feels_like);
   document.querySelector(
     "#feels-like-temperature"
-  ).innerHTML = `${tempByFeeling}°`;
+  ).innerHTML = `${tempByFeeling} °C`;
 
   let windElement = Math.round(response.data.wind.speed);
   document.querySelector("#wind-speed").innerHTML = windElement;
@@ -77,15 +77,13 @@ citySearch.addEventListener("submit", handleSubmit);
 
 function displayFahrenheitTemprature(event) {
   event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiumLink.classList.add("active");
   let temperatureElement = document.querySelector("#current-temperature");
   let toFahrenheit = (celsiumTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(toFahrenheit);
 
   let tempByFeeling = document.querySelector("#feels-like-temperature");
   let feelingsToFahrenheit = (feelingTemprature * 9) / 5 + 32;
-  tempByFeeling.innerHTML = Math.round(feelingsToFahrenheit);
+  tempByFeeling.innerHTML = `${Math.round(feelingsToFahrenheit)} °F`;
 }
 
 function displayCelsiusTemperature(event) {
@@ -94,7 +92,7 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiumTemperature);
 
   let tempByFeeling = document.querySelector("#feels-like-temperature");
-  tempByFeeling.innerHTML = Math.round(feelingTemprature);
+  tempByFeeling.innerHTML = `${Math.round(feelingTemprature)} °C`;
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-unit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemprature);

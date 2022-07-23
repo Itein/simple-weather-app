@@ -71,7 +71,7 @@ img {
   top: -34px;
 }
 .celsium-unit,
-.farenheit-unit {
+.fahrenheit-unit {
   text-decoration: none;
   color: #48484a;
   cursor: default;
@@ -80,7 +80,7 @@ img {
 .celsium-unit:hover {
   color: #48484a;
 }
-.farenheit-unit:hover {
+.fahrenheit-unit:hover {
   color: #ec6e4c;
   font-weight: 600;
   font-size: 35px;

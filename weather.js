@@ -1,15 +1,26 @@
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let currentDay = days[now.getDay()];
-document.querySelector("#day-of-week").innerHTML = currentDay;
+function formatDate(timestap) {
+  let now = new Date(timestap);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let currentDay = days[now.getDay()];
+  document.querySelector("#day-of-week").innerHTML = currentDay;
+  return `${hours}:${minutes}`;
+}
 
 function showWeather(response) {
   let cityName = response.data.name;
@@ -35,6 +46,11 @@ function showWeather(response) {
   let humidityElement = response.data.main.humidity;
   document.querySelector("#humidity").innerHTML = humidityElement;
 
+  let timeElement = formatDate(response.data.dt * 1000);
+  document.querySelector("#update-time").innerHTML = timeElement;
+
+  celsiumTemperature = response.data.main.temp;
+
   let weatherIcon = response.data.weather[0].icon;
   let img = new Image();
   img.src = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
@@ -58,6 +74,23 @@ function handleSubmit(event) {
 }
 let citySearch = document.querySelector(".search-form");
 citySearch.addEventListener("submit", handleSubmit);
+
+function displayFahrenheitTemprature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  let toFahrenheit = (celsiumTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(toFahrenheit);
+
+  /*let celsiumLink = document.querySelector(".celsium-unit");
+  celsiumLink.classList.add("active");
+
+  let farenheitLink = document.querySelector(".fahrenheit-unit");
+  farenheitLink.classList.remove("hover");*/
+}
+let fahrenheitTemprature = document.querySelector(".fahrenheit-unit");
+fahrenheitTemprature.addEventListener("click", displayFahrenheitTemprature);
+
+let celsiumTemperature = null;
 
 //Start city
 function zeroCity(city) {

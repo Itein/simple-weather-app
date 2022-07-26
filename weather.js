@@ -22,6 +22,26 @@ function formatDate(timestap) {
   return `${hours}:${minutes}`;
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast-for-next-days");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+              <div class="day-in-forecast">${day}</div>
+              <img
+                src="http://openweathermap.org/img/wn/09d@2x.png"
+                class="forecast-img"
+              />
+              <span id="max-temperature">28</span> /
+              <span id="min-temperature">18</span>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function showWeather(response) {
   let cityName = response.data.name;
   document.querySelector("h1").innerHTML = cityName;
@@ -55,6 +75,7 @@ function showWeather(response) {
   let img = new Image();
   img.src = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
   let icon = document.querySelector("#main-icon");
+  icon.classList.add("main-image");
   icon.appendChild(img);
   let existingImage = icon.getElementsByTagName("img");
   if (existingImage.length) {
@@ -114,3 +135,4 @@ function zeroCity(city) {
   axios.get(apiUrl).then(showWeather);
 }
 zeroCity("Kyiv");
+showForecast();

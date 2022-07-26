@@ -29,6 +29,8 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.today-weather li {
   font-size: 18px;
   line-height: 30px;
   font-weight: 300;
@@ -57,7 +59,7 @@ h1 {
   line-height: 1;
   font-weight: 400;
 }
-img {
+.main-image img {
   position: relative;
   top: -18px;
   left: -10px;
@@ -93,4 +95,30 @@ img {
 }
 .fa-temperature-half {
   color: #ec6e4c;
+}
+.forecast-img {
+  max-width: 80%;
+  /*border: 1px solid #dadde1;
+  border-radius: 50%;
+  background-color: rgb(185, 196, 201, 0.6);
+  margin: 15px 0;*/
+}
+.weather-forecast {
+  text-align: center;
+  margin-top: 15px;
+}
+.day-in-forecast {
+  color: #48484a;
+  font-size: 17px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+#max-temperature {
+  color: #ec6e4c;
+  font-size: 18px;
+  font-weight: 500;
+}
+#min-temperature {
+  font-size: 18px;
+  color: #48484a;
 }

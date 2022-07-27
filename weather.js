@@ -22,7 +22,8 @@ function formatDate(timestap) {
   return `${hours}:${minutes}`;
 }
 
-function showForecast() {
+function showForecast(response) {
+  console.log(response);
   let forecastElement = document.querySelector("#forecast-for-next-days");
   let forecastHTML = `<div class="row">`;
   let days = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -41,6 +42,14 @@ function showForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let key = "dab72d36ef441c0085acb35134183521";
+  let units = "metric";
+  let apiZeroPoint = "https://api.openweathermap.org/data/2.5/onecall?";
+  let apiURL = `${apiZeroPoint}lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}`;
+  axios.get(apiURL).then(showForecast);
 }
 function showWeather(response) {
   let cityName = response.data.name;
@@ -81,6 +90,7 @@ function showWeather(response) {
   if (existingImage.length) {
     existingImage[0].parentNode.replaceChild(img, existingImage[0]);
   }
+  getForecast(response.data.coord);
 }
 
 function handleSubmit(event) {

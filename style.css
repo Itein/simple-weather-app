@@ -124,3 +124,15 @@ h1 {
   font-size: 18px;
   color: #48484a;
 }
+
+#location-icon {
+  font-size: 35px;
+  color: #707081;
+  transition: all 150ms ease-in-out;
+}
+
+#location-icon:hover {
+  color: #c43109;
+  cursor: pointer;
+  font-size: 38px;
+}

@@ -24,29 +24,20 @@ function formatDate(timestap) {
 function formatDayForForecast(timestap) {
   let date = new Date(timestap * 1000);
   let day = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
 function showForecast(response) {
   console.log(response);
-  let forecast = response.data.daily;
+  let forecast = response.data.daily.slice(1, 6);
 
   let forecastElement = document.querySelector("#forecast-for-next-days");
   let forecastHTML = `<div class="row">`;
 
-  forecast.forEach(function (nextDaysForecast, index) {
-    if (index < 5) {
-      forecastHTML =
-        forecastHTML +
-        `<div class="col">
+  forecast.forEach(function (nextDaysForecast) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col ">
               <div class="day-in-forecast">${formatDayForForecast(
                 nextDaysForecast.dt
               )}</div>
@@ -56,14 +47,15 @@ function showForecast(response) {
                 }@2x.png"
                 class="forecast-img"
               />
+              <br/> 
               <span id="max-temperature">${Math.round(
                 nextDaysForecast.temp.max
               )}°</span> /
               <span id="min-temperature">${Math.round(
                 nextDaysForecast.temp.min
               )}°</span>
+              
             </div>`;
-    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;

@@ -31,7 +31,6 @@ function formatDayForForecast(timestap) {
 }
 //Five-day forecast
 function showForecast(response) {
-  console.log(response);
   let forecast = response.data.daily.slice(1, 6);
 
   let forecastElement = document.querySelector("#forecast-for-next-days");
@@ -100,6 +99,18 @@ function showWeather(response) {
 
   celsiumTemperature = response.data.main.temp;
   feelingTemprature = response.data.main.feels_like;
+
+  let rainChek = response.data;
+  let rainResult = rainChek.hasOwnProperty("rain");
+  console.log(rainResult);
+  if (rainResult === true) {
+    let rainAlert = "Don't forget your umbrella";
+    let rainIcon = `<i class="fa-solid fa-umbrella"></i>`;
+    document.querySelector("#rain").innerHTML = `${rainAlert}   ${rainIcon}`;
+  } else {
+    let niceWeather = "";
+    document.querySelector("#rain").innerHTML = niceWeather;
+  }
 
   let weatherIcon = response.data.weather[0].icon;
   let img = new Image();

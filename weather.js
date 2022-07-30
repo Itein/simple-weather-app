@@ -79,7 +79,6 @@ function showWeather(response) {
   document.querySelector("#weather-condition").innerHTML =
     weatherConditionElement;
 
-  console.log(response);
   let temperatureElement = Math.round(response.data.main.temp);
   document.querySelector("#current-temperature").innerHTML = temperatureElement;
 
@@ -102,7 +101,6 @@ function showWeather(response) {
 
   let rainChek = response.data;
   let rainResult = rainChek.hasOwnProperty("rain");
-  console.log(rainResult);
   if (rainResult === true) {
     let rainAlert = "Don't forget your umbrella";
     let rainIcon = `<i class="fa-solid fa-umbrella"></i>`;

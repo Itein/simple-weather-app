@@ -24,6 +24,18 @@ body {
   border-color: #ec6e4c;
 }
 
+#location-icon {
+  font-size: 35px;
+  color: #707081;
+  transition: all 150ms ease-in-out;
+  filter: drop-shadow(1px 2px 2px rgb(0 0 0 / 0.4));
+}
+
+#location-icon:hover {
+  color: #454553;
+  cursor: pointer;
+  font-size: 38px;
+}
 section {
   margin-top: 10px;
 }
@@ -43,12 +55,6 @@ li:first-letter {
 }
 main {
   margin-top: 35px;
-}
-
-small {
-  max-width: 700px;
-  display: block;
-  margin: 0 auto;
 }
 
 h1 {
@@ -98,6 +104,18 @@ h1 {
 .fa-temperature-half {
   color: #ec6e4c;
 }
+.raining {
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: #48484a;
+}
+.fa-umbrella {
+  color: #ec6e4c;
+  font-size: 25px;
+}
+
 .forecast-img {
   max-width: 70%;
   border: 1px solid #dadde1;
@@ -124,41 +142,8 @@ h1 {
   font-size: 18px;
   color: #48484a;
 }
-
-#location-icon {
-  font-size: 35px;
-  color: #707081;
-  transition: all 150ms ease-in-out;
-  filter: drop-shadow(1px 2px 2px rgb(0 0 0 / 0.4));
-}
-
-#location-icon:hover {
-  color: #454553;
-  cursor: pointer;
-  font-size: 38px;
-}
-
-.background-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-  background-color: #454553;
-  opacity: 0.9;
-}
-.raining {
-  font-size: 18px;
-  font-weight: 300;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  color: #48484a;
-}
-.fa-umbrella {
-  color: #ec6e4c;
-  font-size: 25px;
+small {
+  max-width: 700px;
+  display: block;
+  margin: 0 auto;
 }
